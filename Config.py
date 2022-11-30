@@ -25,3 +25,4 @@ else:
     MUST_JOIN = ""
     if MUST_JOIN.startswith("@"):
         MUST_JOIN = MUST_JOIN[1:]
+PORT = os.environ.get("PORT", "8080")
