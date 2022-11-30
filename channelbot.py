@@ -2,7 +2,7 @@ import Config
 import logging
 from pyromod import listen
 from pyrogram import Client, idle
-from pyrogram.errors import ApiIdInvalid, ApiIdPublishedFlood, AccessTokenInvalid
+from pyrogram.errors import ApiIdInvalid, ApiIdPublishedFlood, AccessTokenInvalid, PORT
 
 
 logging.basicConfig(
@@ -30,6 +30,12 @@ if __name__ == "__main__":
         raise Exception("Your BOT_TOKEN is not valid.")
     uname = app.get_me().username
     print(f"@{uname} Started Successfully!")
+    
+    app = web.AppRunner(await web_server())
+        await app.setup()
+        bind_address = "0.0.0.0"
+        await web.TCPSite(app, bind_address, PORT).start()
+        
     idle()
     app.stop()
     print("Bot stopped. Alvida!")
