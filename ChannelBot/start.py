@@ -1,3 +1,5 @@
+import os
+import asyncio
 from Data import Data
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, ReplyKeyboardMarkup
