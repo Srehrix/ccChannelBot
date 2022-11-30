@@ -1,8 +1,13 @@
+from aiohttp import web
+from ChannelBot import web_server
+
 import Config
 import logging
 from pyromod import listen
 from pyrogram import Client, idle
-from pyrogram.errors import ApiIdInvalid, ApiIdPublishedFlood, AccessTokenInvalid, PORT
+from pyrogram.errors import ApiIdInvalid, ApiIdPublishedFlood, AccessTokenInvalid
+
+from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FORCE_SUB_CHANNEL, CHANNEL_ID, PORT
 
 
 logging.basicConfig(
